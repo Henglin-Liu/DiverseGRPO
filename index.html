@@ -52,28 +52,29 @@
       <div class="container is-max-desktop">
         <div class="columns is-centered">
           <div class="column has-text-centered">
-            <h1 class="title is-1 publication-title">Adaptive FSS: A Novel Few-Shot Segmentation Framework via Prototype Enhancement</h1>
-            <h3 class="title is-3">AAAI 2024</h3>
+            <h1 class="title is-1 publication-title">DiverseGRPO: Mitigating Mode Collapse in Image Generation via Diversity-Aware GRPO</h1>
+            <h3 class="title is-3">Under Review</h3>
             <div class="is-size-5 publication-authors">
               <!-- Paper authors -->
               <span class="author-block">
-                <a href="https://scholar.google.com/citations?user=Q9Np_KQAAAAJ&hl=en" target="_blank">Jing Wang</a><sup>1</sup>,&nbsp;&nbsp;</span>
+                <a href="https://henglin-liu.github.io/HenglinLiu/">Henglin Liu</a><sup>1,2</sup>,&nbsp;&nbsp;</span>
               <span class="author-block">
-                <a href="http://saee.ustb.edu.cn/quantijiaoshi/2015-05-12/69.html" target="_blank">Jiangyun Li</a><sup>1</sup>,&nbsp;&nbsp;</span>
+                <a href="https://scholar.google.com/citations?user=BMPobCoAAAAJ&hl=zh-CN">Huijuan Huang</a><sup>2</sup>,&nbsp;&nbsp;</span>
               <span class="author-block">
-                <a href="https://scholar.google.com/citations?user=TuEwcZ0AAAAJ&hl=en" target="_blank">Chen Chen</a><sup>2</sup>,&nbsp;&nbsp;</span>
+                <a href="https://jingw193.github.io/wangjing/">Jing Wang</a><sup>2,3</sup>,&nbsp;&nbsp;</span> 
               <span class="author-block">
-                <a href="https://scholar.google.com.hk/citations?user=YG7_e9AAAAAJ&hl=zh-CN" target="_blank">Yisi Zhang</a><sup>1</sup>,&nbsp;&nbsp;</span>
+                <a href="https://www.au.tsinghua.edu.cn/en/info/1096/3484.htm">Chang Liu</a><sup>1</sup>,&nbsp;&nbsp;</span>
               <span class="author-block">
-                <a href="https://scholar.google.com.hk/citations?hl=zh-CN&pli=1&user=Lf4kCHoAAAAJ" target="_blank">Haoran Shen</a><sup>1</sup>,&nbsp;&nbsp;</span>
+                <a href="https://www.sigs.tsinghua.edu.cn/lx/list.htm">Xiu Li</a><sup>1</sup>,&nbsp;&nbsp;</span>
               <span class="author-block">
-                <a href="https://www.researchgate.net/profile/Tianxiang-Zhang-2" target="_blank">Tianxiang Zhang</a><sup>1</sup>,&nbsp;&nbsp;</span>
-                  </span>
-                  </div>
+                <a href="https://www.au.tsinghua.edu.cn/info/1080/3178.htm">Xiangyang Ji</a><sup>1</sup>,&nbsp;&nbsp;</span>
+              <span class="author-block">
+            </div>
 
                   <div class="is-size-5 publication-authors">
-                    <span class="author-block"><sup>1</sup>University of Science and Technology Beijing</span>
-                    <span class="author-block"><sup>2</sup>University of Central Florida</span>
+                    <span class="author-block"><sup>1</sup>Tsinghua University,&nbsp;&nbsp;</span>
+                    <span class="author-block"><sup>2</sup>Kling Team, Kuaishou Technology,&nbsp;&nbsp;</span>
+                    <span class="author-block"><sup>3</sup>Shenzhen Campus of Sun Yat-Sen University,&nbsp;&nbsp;</span>
                   </div>
 
                   <div class="column has-text-centered">
@@ -91,7 +92,7 @@
 
                     <!-- Video link -->
                     <span class="link-block">
-                      <a href="" target="_blank"
+                      <a href="https://youtu.be/AcdjdqDVATE" target="_blank"
                       class="external-link button is-normal is-rounded is-dark">
                       <span class="icon">
                         <i class="fab fa-youtube"></i>
@@ -102,16 +103,13 @@
 
                   <!-- Github link -->
                   <span class="link-block">
-                    <a href="https://github.com/jingw193/Adaptive_FSS" target="_blank"
-                    class="external-link button is-normal is-rounded is-dark">
                     <span class="icon">
                       <i class="fab fa-github"></i>
                     </span>
-                    <span>Code</span>
-                  </a>
+                    <span>Coming Soon</span>
                 </span>
 
-                <!-- ArXiv abstract Link -->
+                <!-- ArXiv abstract Link TODO-->
                 <span class="link-block">
                   <a href="https://arxiv.org/abs/2312.15731" target="_blank"
                   class="external-link button is-normal is-rounded is-dark">
@@ -139,7 +137,9 @@
         <h2 class="title is-3">Abstract</h2>
         <div class="content has-text-justified">
           <p>
-             The Few-Shot Segmentation (FSS) aims to accomplish the novel class segmentation task with a few annotated images. Current FSS research based on meta-learning focuses on designing a complex interaction mechanism between the query and support feature. However, unlike humans who can rapidly learn new things from limited samples, the existing approach relies solely on fixed feature matching to tackle new tasks, lacking adaptability. In this paper, we propose a novel framework based on the adapter mechanism, namely Adaptive FSS, which can efficiently adapt the existing FSS model to the novel classes. In detail, we design the Prototype Adaptive Module (PAM), which utilizes accurate category information provided by the support set to derive class prototypes, enhancing class-specific information in the multi-stage representation. In addition, our approach is compatible with in diverse FSS methods with different backbones by simply inserting PAM between the layers of the encoder. Experiments demonstrate that our method effectively improves the performance of the FSS models (e.g., MSANet, HDMNet, FPTrans, and DCAMA) and achieves new state-of-the-art (SOTA) results (i.e., 72.4% and 79.1% mIoU on PASCAL-5<sup>i</sup> 1-shot and 5-shot settings, 52.7% and 60.0% mIoU on COCO-20<sup>i</sup> 1-shot and 5-shot settings).
+             Reinforcement learning (RL), particularly GRPO, improves image generation quality significantly by comparing the relative performance of images generated within the same group. However, in the later stages of training, the model tends to produce homogenized outputs, lacking creativity and visual diversity, restricting the application scenarios of the model.
+This issue can be analyzed from both reward modeling and generation dynamics perspectives. First, traditional GRPO relies on single-sample quality as the reward signal, driving the model to converge toward a few high-reward generation modes while neglecting distribution-level diversity. Second, conventional GRPO regularization neglects the dominant role of early-stage denoising in preserving diversity, causing a misaligned regularization budget that limits the achievable quality–diversity trade-off.
+Motivated by these insights, we revisit the diversity degradation problem from both reward modeling and generation dynamics. At the reward level, we propose a distributional creativity bonus based on semantic grouping. Specifically, we construct a distribution-level representation via spectral clustering over samples generated from the same caption, and adaptively allocate exploratory rewards according to group sizes to encourage the discovery of novel visual modes. At the generation level, we introduce a structure-aware regularization, which enforces stronger early-stage constraints to preserve diversity without compromising reward optimization efficiency. Experiments demonstrate that our method achieves an 13\%$\sim$18\% improvement in semantic diversity under matched quality scores, establishing a new Pareto frontier between image quality and diversity for GRPO-based image generation.
           </p>
         </div>
       </div>
@@ -153,18 +153,33 @@
 <section class="hero is-small">
   <div class="hero-body">
     <div class="container is-max-desktop">
-      <h2 class="title is-3">Method</h2>
+      <h2 class="title is-3">Problem</h2>
       <div class="item">
-        <!-- Your image here -->
-        <img src="static/images/method.png" alt="MY ALT TEXT"/>
+        <!-- 修改这一行：将src属性指向GIF文件 -->
+        <img src="static/images/problem.gif" alt="MY ALT TEXT"/>
         <h2 class="content has-text-justified">
            The overall architecture of our proposed Adaptive FSS. Given a support set {I<SUB>s</SUB>, M<SUB>s</SUB>}, the image I<SUB>s</SUB> is fed into the encoder and generates feature F<SUB>s</SUB> (F<SUB>q</SUB>). In each PAM, with calculation between F<SUB>s</SUB> and mask M<SUB>s</SUB>, the temporary prototype P<SUB>t</SUB> is first obtained to select prototype P<SUB>i</SUB> and update the bank. After that, the corresponding class prototype P<SUB>i</SUB> and feature F<SUB>s</SUB> (F<SUB>q</SUB>) are combined to generate the class-specific feature F<SUB>s</SUB><sup>*</sup> (F<SUB>q</SUB><sup>*</sup>). Finally, F<SUB>s</SUB><sup>*</sup> (F<SUB>q</SUB><sup>*</sup>) is sent into the Learnable Adaptive Module, leading to the acquired \hat{F<SUB>s</SUB>} (\hat{F<SUB>q</SUB>}), which are injected into the encoder.
        </h2>
      </div>
     </div>
   </div>
-</div>
-</div>
+</section>
+<!-- End image carousel -->
+
+<!-- Image carousel -->
+<section class="hero is-small">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <h2 class="title is-3">Method</h2>
+      <div class="item">
+        <!-- 修改这一行：将src属性指向GIF文件 -->
+        <img src="static/images/problem.gif" alt="MY ALT TEXT"/>
+        <h2 class="content has-text-justified">
+           The overall architecture of our proposed Adaptive FSS. Given a support set {I<SUB>s</SUB>, M<SUB>s</SUB>}, the image I<SUB>s</SUB> is fed into the encoder and generates feature F<SUB>s</SUB> (F<SUB>q</SUB>). In each PAM, with calculation between F<SUB>s</SUB> and mask M<SUB>s</SUB>, the temporary prototype P<SUB>t</SUB> is first obtained to select prototype P<SUB>i</SUB> and update the bank. After that, the corresponding class prototype P<SUB>i</SUB> and feature F<SUB>s</SUB> (F<SUB>q</SUB>) are combined to generate the class-specific feature F<SUB>s</SUB><sup>*</sup> (F<SUB>q</SUB><sup>*</sup>). Finally, F<SUB>s</SUB><sup>*</sup> (F<SUB>q</SUB><sup>*</sup>) is sent into the Learnable Adaptive Module, leading to the acquired \hat{F<SUB>s</SUB>} (\hat{F<SUB>q</SUB>}), which are injected into the encoder.
+       </h2>
+     </div>
+    </div>
+  </div>
 </section>
 <!-- End image carousel -->
 

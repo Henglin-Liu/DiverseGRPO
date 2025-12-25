@@ -24,7 +24,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
 
-  <title>Adaptive FSS</title>
+  <title>DiverseGRPO</title>
   <link rel="icon" type="image/x-icon" href="static/images/favicon.ico">
   <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
   rel="stylesheet">
@@ -43,17 +43,29 @@
   <script src="static/js/bulma-carousel.min.js"></script>
   <script src="static/js/bulma-slider.min.js"></script>
   <script src="static/js/index.js"></script>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Math Rendering with Bulma</title>
+  <!-- Bulma CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+  <!-- KaTeX CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+  <style>
+      .has-text-justified {
+          text-align: justify;
+      }
+      .katex { font-size: 1.1em; }  /* 调整公式字体大小 */
+  </style>
 </head>
 <body>
 
-  
+
   <section class="hero">
     <div class="hero-body">
       <div class="container is-max-desktop">
         <div class="columns is-centered">
           <div class="column has-text-centered">
             <h1 class="title is-1 publication-title">DiverseGRPO: Mitigating Mode Collapse in Image Generation via Diversity-Aware GRPO</h1>
-            <h3 class="title is-3">Under Review</h3>
             <div class="is-size-5 publication-authors">
               <!-- Paper authors -->
               <span class="author-block">
@@ -74,7 +86,7 @@
                   <div class="is-size-5 publication-authors">
                     <span class="author-block"><sup>1</sup>Tsinghua University,&nbsp;&nbsp;</span>
                     <span class="author-block"><sup>2</sup>Kling Team, Kuaishou Technology,&nbsp;&nbsp;</span>
-                    <span class="author-block"><sup>3</sup>Shenzhen Campus of Sun Yat-Sen University,&nbsp;&nbsp;</span>
+                    <span class="author-block"><sup>3</sup>Shenzhen Campus of Sun Yat-Sen University&nbsp;&nbsp;</span>
                   </div>
 
                   <div class="column has-text-centered">
@@ -97,28 +109,29 @@
                       <span class="icon">
                         <i class="fab fa-youtube"></i>
                       </span>
-                      <span>video</span>
+                      <span>Video</span>
                     </a>
                   </span>
 
                   <!-- Github link -->
                   <span class="link-block">
-                    <span class="icon">
-                      <i class="fab fa-github"></i>
-                    </span>
-                    <span>Coming Soon</span>
-                </span>
-
-                <!-- ArXiv abstract Link TODO-->
-                <span class="link-block">
-                  <a href="https://arxiv.org/abs/2312.15731" target="_blank"
-                  class="external-link button is-normal is-rounded is-dark">
-                  <span class="icon">
-                    <i class="ai ai-arxiv"></i>
+                    <a class="external-link button is-normal is-rounded is-dark">
+                      <span class="icon">
+                        <i class="fab fa-github"></i>
+                      </span>
+                      <span>Coming Soon</span>
+                    </a>
                   </span>
-                  <span>arXiv</span>
-                </a>
-              </span>
+
+                  <!-- ArXiv abstract Link -->
+                  <span class="link-block">
+                    <a class="external-link button is-normal is-rounded is-dark">
+                      <span class="icon">
+                        <i class="ai ai-arxiv"></i>
+                      </span>
+                      <span>Coming Soon</span>
+                    </a>
+                  </span>
             </div>
           </div>
         </div>
@@ -127,14 +140,16 @@
   </div>
 </section>
 
-
+  <!-- 分界线 -->
+<br/>
+<!-- 分界线结束 -->
 
 <!-- Paper abstract -->
 <section class="section hero is-light">
   <div class="container is-max-desktop">
     <div class="columns is-centered has-text-centered">
       <div class="column is-four-fifths">
-        <h2 class="title is-3">Abstract</h2>
+        <h2 class="title is-3 has-text-centered">Abstract</h2>
         <div class="content has-text-justified">
           <p>
              Reinforcement learning (RL), particularly GRPO, improves image generation quality significantly by comparing the relative performance of images generated within the same group. However, in the later stages of training, the model tends to produce homogenized outputs, lacking creativity and visual diversity, restricting the application scenarios of the model.
@@ -148,51 +163,480 @@ Motivated by these insights, we revisit the diversity degradation problem from b
 </section>
 <!-- End paper abstract -->
 
+<!-- 分界线 -->
+<br/>
+<!-- 分界线结束 -->
+
+<section class="hero is-small">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <h2 class="title is-3 has-text-centered">Overview</h2>
+      <div class="item">
+        <h2 class="content has-text-justified">
+          DiverseGRPO enhances image quality while mitigating mode collapse during GRPO training. Watch our video presentation for a quick summary of our key contributions.
+        </h2>
+        <!-- 修改为YouTube视频嵌入 -->
+        <div class="video-container" style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; margin-bottom: 1.5rem;">
+          <iframe 
+            src="https://www.youtube.com/embed/AcdjdqDVATE" 
+            style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0;" 
+            frameborder="0" 
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+            allowfullscreen>
+          </iframe>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 分界线 -->
+<br/>
+<!-- 分界线结束 -->
 
 <!-- Image carousel -->
 <section class="hero is-small">
   <div class="hero-body">
     <div class="container is-max-desktop">
-      <h2 class="title is-3">Problem</h2>
+      <h2 class="title is-3 has-text-centered">Problem</h2>
       <div class="item">
         <!-- 修改这一行：将src属性指向GIF文件 -->
         <img src="static/images/problem.gif" alt="MY ALT TEXT"/>
         <h2 class="content has-text-justified">
-           The overall architecture of our proposed Adaptive FSS. Given a support set {I<SUB>s</SUB>, M<SUB>s</SUB>}, the image I<SUB>s</SUB> is fed into the encoder and generates feature F<SUB>s</SUB> (F<SUB>q</SUB>). In each PAM, with calculation between F<SUB>s</SUB> and mask M<SUB>s</SUB>, the temporary prototype P<SUB>t</SUB> is first obtained to select prototype P<SUB>i</SUB> and update the bank. After that, the corresponding class prototype P<SUB>i</SUB> and feature F<SUB>s</SUB> (F<SUB>q</SUB>) are combined to generate the class-specific feature F<SUB>s</SUB><sup>*</sup> (F<SUB>q</SUB><sup>*</sup>). Finally, F<SUB>s</SUB><sup>*</sup> (F<SUB>q</SUB><sup>*</sup>) is sent into the Learnable Adaptive Module, leading to the acquired \hat{F<SUB>s</SUB>} (\hat{F<SUB>q</SUB>}), which are injected into the encoder.
-       </h2>
+            <span class="observation-line">A significant decline in the diversity of generated images is observed as the GRPO training progresses.</span>
+            <p class="paragraph">
+            This phenomenon arises because optimizing for <span class="emphasis">reward maximization</span> encourages the model to focus on a small set of high-reward outputs. As a result, <span class="emphasis">"safe" or high-scoring patterns are repeatedly reinforced</span>, while <span class="emphasis">creative or less common behaviors are gradually suppressed</span>.
+            </p>
+
+            <!-- <span class="explanation-line"><strong>Explanation</strong>: This occurs because the intrinsic objective of <em>reward maximization</em> tends to overfit the model to a narrow subset of high-reward modes, effectively encouraging the reproduction of 'safe' or 'high-score' patterns while suppressing creative or unconventional outputs. From a dynamics perspective, generation can be decomposed into multiple semantic modes. The typical single-sample reward induces a <strong>replicator dynamics</strong>, where modes with slightly higher average reward are amplified while others are suppressed. Ultimately, this process converges to a unimodal distribution, leading to homogenized outputs and <strong>mode extinction</strong>. Therefore, preventing this collapse requires fundamentally reshaping the reward structure to be distribution-aware, rather than relying on isolated sample scores. Formally, the conditional distribution can be decomposed as $\pi_{\theta}(x \mid p)=\sum_{k=1}^{K} w_{k} \pi_{\theta}^{k}(x \mid p)$. During optimization, the <strong>replicator dynamics</strong> $ \frac{dw_{k}}{dt}=w_{k}(\bar{r}_{k}-\mathbb{E}_{j}[\bar{r}_{j}])$ governs the mixture weights $w_k$, where $\bar{r}_{k}$ is the average reward of mode $k$. Modes with above-average reward are amplified, while others are suppressed, leading to an equilibrium where only the dominant mode survives: $w_{k} = \mathbf{1}_{\{k = \arg\max_{j} \bar{r}_{j}\}}$. This dynamic causes the model to converge to a unimodal, homogenized output distribution, sacrificing diversity for immediate reward.</span> -->
+            <span class="question-block">However, we raise a deeper question: <strong class="emphasized-question">Is diversity degradation an inevitable byproduct of reward optimization, or is it a symptom of misaligned learning objectives and generation dynamics?</strong></span>
+        </h2>
+
      </div>
     </div>
   </div>
 </section>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        renderMathInElement(document.body, {
+            delimiters: [
+                {left: '$$', right: '$$', display: true},
+                {left: '$', right: '$', display: false},
+                {left: '\\(', right: '\\)', display: false},
+                {left: '\\[', right: '\\]', display: true}
+            ],
+            throwOnError: false
+        });
+    });
+</script>
+<style>
+    .content.has-text-justified {
+        line-height: 1.7;
+        color: #333;
+    }
+    
+    .content.has-text-justified .observation-line {
+        display: block;
+        margin-bottom: 0.8em;
+        padding-bottom: 0.8em;
+        border-bottom: 1px solid #eee;
+    }
+    
+    .content.has-text-justified .explanation-line {
+        display: block;
+        margin-bottom: 1.2em;
+        font-style: italic;
+        color: #555;
+    }
+    
+    .content.has-text-justified .question-block {
+        display: block;
+        margin-top: 1.2em;
+        padding: 1em;
+        background-color: #f8f9fa;
+        border-left: 4px solid #e2934a;
+        border-radius: 0 4px 4px 0;
+    }
+    
+    .content.has-text-justified .emphasized-question {
+        color: #d35400;
+        font-size: 1.05em;
+        font-weight: 700;
+    }
+    
+    .content.has-text-justified em {
+        color: #2980b9;
+        font-weight: 600;
+    }
+    
+    .content.has-text-justified strong:not(.emphasized-question) {
+        color: #2c3e50;
+        background-color: #f1f8ff;
+        padding: 0.1em 0.3em;
+        border-radius: 3px;
+    }
+
+    /* explain style */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.7;
+            color: #333;
+            max-width: 900px;
+            margin: 40px auto;
+            padding: 20px;
+            background-color: #f9f9f9;
+        }
+        .explanation-container {
+            background: white;
+            border-radius: 10px;
+            padding: 30px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+            border-left: 5px solid #2c80b9;
+        }
+        .paragraph {
+            margin-bottom: 1.8em;
+            text-align: justify;
+        }
+        .paragraph:last-of-type {
+            margin-bottom: 0;
+        }
+        .highlight {
+            color: #d35400;
+            font-weight: 600;
+        }
+        .emphasis {
+            color: #2c80b9;
+            font-weight: 600;
+        }
+        .emphasis_conclusion {
+            color: #27ae60;
+            font-weight: 600;
+        }
+        .formula {
+            display: block;
+            text-align: center;
+            margin: 1em 0;
+            padding: 5px;
+            background: #f1f8ff;
+            border-radius: 6px;
+            font-family: 'Cambria', 'Times New Roman', serif;
+            font-size: 1.1em;
+            border-left: 4px solid #5dade2;
+        }
+        .conclusion {
+            margin-top: 2em;
+            padding: 20px;
+            background: #79e6862b;
+            border-radius: 8px;
+            border-left: 5px solid #27ae60;
+        }
+        .conclusion .highlight {
+            color: #27ae60;
+        }
+
+    /* cases style */
+        .hero {
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+        }
+        
+  .card-carousel {
+    position: relative;
+    overflow: hidden;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    background-color: white;
+    margin-bottom: 2rem;
+}
+
+.cards-container {
+    display: flex;
+    transition: transform 0.5s ease;
+}
+
+.card-item {
+    min-width: 100%;
+    padding: 2rem;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+}
+
+/* 添加图片容器 */
+.card-image-container {
+    width: 100%;
+    height: 80vh; /* 使用视窗高度的70% */
+    max-height: 700px; /* 设置最大高度限制 */
+    min-height: 500px; /* 设置最小高度 */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    background-color: #f5f5f5;
+    margin-bottom: 1rem;
+}
+
+.card-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain; /* 保持宽高比，完整显示图片，可能会有留白 */
+    /* 或者使用 object-fit: cover; 填充整个容器，但会裁剪图片边缘 */
+    transition: transform 0.3s ease;
+}
+
+.card-item img:hover {
+    transform: scale(1.01);
+}
+
+.tabs-container {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 1.5rem;
+    flex-wrap: wrap;
+}
+        
+        .tab-button {
+            padding: 0.75rem 1.5rem;
+            margin: 0.5rem;
+            border: none;
+            background-color: #f0f0f0;
+            border-radius: 50px;
+            cursor: pointer;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+        
+        .tab-button.active {
+            background-color: #485fc7;
+            color: white;
+            box-shadow: 0 4px 10px rgba(72, 95, 199, 0.3);
+        }
+        
+        .tab-button:hover:not(.active) {
+            background-color: #e0e0e0;
+        }
+        
+        .nav-arrows {
+            display: flex;
+            justify-content: space-between;
+            position: absolute;
+            top: 50%;
+            left: 0;
+            right: 0;
+            transform: translateY(-50%);
+            z-index: 10;
+            padding: 0 1rem;
+        }
+        
+        .arrow {
+            background-color: white;
+            border: none;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+        
+        .arrow:hover {
+            background-color: #485fc7;
+            color: white;
+            transform: scale(1.1);
+        }
+        
+        .indicators {
+            display: flex;
+            justify-content: center;
+            margin-top: 0.5rem;
+        }
+        
+        .indicator {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background-color: #ddd;
+            margin: 0 6px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .indicator.active {
+            background-color: #485fc7;
+            transform: scale(1.2);
+        }
+        
+        .comparison-note {
+            background-color: #f8f9fa;
+            border-left: 4px solid #485fc7;
+            padding: 1.5rem;
+            border-radius: 0 8px 8px 0;
+            margin-top: 2rem;
+        }
+        
+        .image-caption {
+            margin-top: 1rem;
+            font-style: italic;
+            color: #666;
+            text-align: center;
+        }
+        
+        .card-header {
+            background-color: #485fc7;
+            color: white;
+            padding: 1rem 1.5rem;
+            border-radius: 8px 8px 0 0;
+        }
+        
+        @media (max-width: 768px) {
+            .nav-arrows {
+                display: none;
+            }
+            
+            .tab-button {
+                padding: 0.6rem 1.2rem;
+                font-size: 0.9rem;
+            }
+        }
+
+</style>
+
+<!-- 分界线 -->
+<br/>
+<!-- 分界线结束 -->
+
 <!-- End image carousel -->
 
-<!-- Image carousel -->
 <section class="hero is-small">
   <div class="hero-body">
     <div class="container is-max-desktop">
-      <h2 class="title is-3">Method</h2>
+      <h2 class="title is-3 has-text-centered">Motivation</h2>
       <div class="item">
-        <!-- 修改这一行：将src属性指向GIF文件 -->
-        <img src="static/images/problem.gif" alt="MY ALT TEXT"/>
-        <h2 class="content has-text-justified">
-           The overall architecture of our proposed Adaptive FSS. Given a support set {I<SUB>s</SUB>, M<SUB>s</SUB>}, the image I<SUB>s</SUB> is fed into the encoder and generates feature F<SUB>s</SUB> (F<SUB>q</SUB>). In each PAM, with calculation between F<SUB>s</SUB> and mask M<SUB>s</SUB>, the temporary prototype P<SUB>t</SUB> is first obtained to select prototype P<SUB>i</SUB> and update the bank. After that, the corresponding class prototype P<SUB>i</SUB> and feature F<SUB>s</SUB> (F<SUB>q</SUB>) are combined to generate the class-specific feature F<SUB>s</SUB><sup>*</sup> (F<SUB>q</SUB><sup>*</sup>). Finally, F<SUB>s</SUB><sup>*</sup> (F<SUB>q</SUB><sup>*</sup>) is sent into the Learnable Adaptive Module, leading to the acquired \hat{F<SUB>s</SUB>} (\hat{F<SUB>q</SUB>}), which are injected into the encoder.
-       </h2>
+        <!-- Your image here -->
+        <!-- <img src="static/images/motivation.png" alt="MY ALT TEXT"/> -->
+        <!-- motivation 1 -->
+        <div class="explanation-container">
+          <div style="text-align: center;">
+            <img src="static/images/motivation1.png" alt="MY ALT TEXT" style="width: 50%; height: auto;"/>
+          </div>
+
+          <p class="paragraph">
+              From a dynamical viewpoint, the model’s conditional distribution can be written as a mixture of semantic modes:
+          </p>
+
+          <div class="formula">
+              \[
+              \pi_{\theta}(x \mid p) = \sum_{k=1}^{K} w_k \, \pi_{\theta}^{k}(x \mid p)
+              \]
+          </div>
+
+          <p class="paragraph">
+              When training relies on <span class="highlight">single-sample rewards</span>, the mixture weights \(w_k\) evolve according to replicator dynamics:
+          </p>
+
+          <div class="formula">
+              \[
+              \frac{dw_k}{dt} = w_k \bigl( \bar{r}_k - \mathbb{E}_{j}[ \bar{r}_j ] \bigr)
+              \]
+          </div>
+
+          <p class="paragraph">
+              where \(\bar{r}_k\) is the average reward of mode \(k\). <span class="emphasis">Modes with above-average reward grow, while others shrink</span>. Over time, this process converges to a <span class="highlight">degenerate equilibrium</span>,
+          </p>
+
+          <div class="formula">
+              \[
+              w_k = \mathbb{1}\{ k = \arg\max_{j} \bar{r}_j \}
+              \]
+          </div>
+
+          <p class="paragraph">
+              in which <span class="emphasis">only the highest-reward mode survives</span>. The outcome is a <span class="highlight">unimodal and homogenized output distribution</span>, leading to <span class="emphasis">mode extinction and loss of diversity</span>.
+          </p>
+
+          <div class="conclusion">
+              <p class="paragraph">
+                  <span class="emphasis_conclusion">Motivation 1:</span> Single-sample rewards suffer from overlooking global distribution and easily inducing mode collapse, thus <span class="emphasis_conclusion">necessitating the adoption of distribution-level rewards</span>. 
+              </p>
+          </div>
+      </div>
+      <!-- 分界线 -->
+      <br/>
+      <!-- 分界线结束 -->
+        <!-- motivation 2 -->
+        <div class="explanation-container">
+          <div style="text-align: center;">
+            <img src="static/images/motivation2.png" alt="MY ALT TEXT" style="width: 50%; height: auto;"/>
+          </div>
+          <p class="paragraph">
+              Beyond external reward signals, we reveal a key insight from the <span class="highlight">intrinsic denoising dynamics</span> of diffusion models. By measuring perceptual similarity with DreamSim, we find that samples sharing more denoising steps become increasingly similar.
+          </p>
+
+          <p class="paragraph">
+              Crucially, <span class="emphasis">diversity collapses much faster in the early denoising phase</span>: the first one-third of steps accounts for <span class="metric">nearly 66% of the total diversity loss</span>. This shows that <span class="emphasis">early denoising plays a dominant role in determining visual diversity</span>, and later steps focus on refinement.
+          </p>
+
+          <p class="paragraph">
+              From the perspective of mitigating mode collapse, the denoising trajectory forms an imbalanced <span class="highlight">diversity budget</span>. However, the traditional KL penalty becomes effectively weakest exactly when the budget should be highest, resulting in a structural mismatch that accelerates mode extinction.
+          </p>
+
+          <div class="conclusion">
+              <p class="paragraph">
+                  <span class="emphasis_conclusion">Motivation 2: </span>Structural mismatch accelerates mode extinction, highlighting a <span class="emphasis_conclusion">fundamental limitation in current diffusion training regularization</span>.
+              </p>
+          </div>
+        </div>
+
      </div>
     </div>
   </div>
+</div>
+</div>
 </section>
-<!-- End image carousel -->
+
+<!-- 分界线 -->
+<br/>
+<!-- 分界线结束 -->
 
 <!-- Image carousel -->
 <section class="hero is-small">
   <div class="hero-body">
     <div class="container is-max-desktop">
-      <h2 class="title is-3">Quantitative Results</h2>
+      <h2 class="title is-3 has-text-centered">Method Overview</h2>
+      <div class="item">
+        <!-- Your image here -->
+        <img src="static/images/method.png" alt="MY ALT TEXT"/>
+        <h2 class="content has-text-justified">
+           
+       </h2>
+     </div>
+    </div>
+  </div>
+</div>
+</div>
+</section>
+<!-- End image carousel -->
+
+<!-- 分界线 -->
+<br/>
+<!-- 分界线结束 -->
+
+<!-- Image carousel -->
+<section class="hero is-small">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <h2 class="title is-3 has-text-centered">Quantitative Results</h2>
       <div class="item">
         <!-- Your image here -->
         <img src="static/images/Report_score.png" alt="MY ALT TEXT"/>
         <h2 class="content has-text-justified">
-           To comprehensively evaluate our approach, we conduct experiments on four few-shot segmentation networks (MSANet, HDMANet, FPTrans, and DCAMA), which adopt three popular backbones (ResNet, Vision Transformer, and Swin Transformer) as shown in Table. It is worth emphasizing that we followed the test setting of DCAMA so that the performance of the other method is slightly different from that in the original paper. As expected, our method consistently improves the performance of existing FSS methods with different encoders on two benchmarks. 
+           To comprehensively evaluate our approach, we conduct experiments with different backbones (SD3.5-M / Flux.1-dev) and reward functions (Pickscore / HPSv3) as shown in the table. Our approach consistently improves all diversity metrics, achieving a superior quality-diversity Pareto front under comparable visual quality conditions. This confirms that our reward mechanism encourages exploration of novel visual modes, preventing convergence to a few high-reward patterns.
        </h2>
      </div>
     </div>
@@ -202,19 +646,279 @@ Motivated by these insights, we revisit the diversity degradation problem from b
 </section>
 <!-- End image carousel -->
 
+<!-- 分界线 -->
+<br/>
+<!-- 分界线结束 -->
 
-  <!-- Image carousel -->
+<!-- Image carousel -->
 <section class="hero is-small">
   <div class="hero-body">
     <div class="container is-max-desktop">
-      <h2 class="title is-3">Qualitative Results</h2>
+      <h2 class="title is-3 has-text-centered">Ablation study</h2>
       <div class="item">
         <!-- Your image here -->
-        <img src="static/images/Vision_comparison.png" alt="MY ALT TEXT"/>
+        <img src="static/images/abla_all.png" alt="MY ALT TEXT"/>
         <h2 class="content has-text-justified">
-           This a visual comparison between the baseline and our Adaptive FSS on the PASCAL-5<sup>i</sup> as shown in figure. The FPTrans without finetuning is chosen as the baseline. Our method achieves high-quality segmentation due to adapting the model to new categories effectively. 
+           We evaluate the separate effects of the Structure-Aware Regularization (SA-Reg) and Creativity Reward modules. As shown in Figure (a), using both modules together achieves the best trade-off between quality and diversity. This indicates that structure-aware regularization helps maintain diverse image patterns, while the creativity reward pushes the model to explore even more semantic variations.
+           Figure (b) and (c) examine the effects of the creativity reward coefficient and the number of structured-aware regularization steps, respectively. Increasing the coefficient boosts diversity, notably at the highest value, by encouraging exploration, but the additional gains in diversity begin to plateau in later stages. This suggests that beyond a certain point, the model finds a balance between exploration and exploitation. Likewise, more regularization steps enhance diversity through structured regularization, but higher step counts lead to increased computational expense with diminishing returns (further details in the appendix).
        </h2>
      </div>
+    </div>
+  </div>
+</div>
+</div>
+</section>
+<!-- End image carousel -->
+ 
+<!-- 分界线 -->
+<br/>
+<!-- 分界线结束 -->
+
+
+<section class="hero is-small">
+        <div class="hero-body">
+            <div class="container is-max-desktop">
+                <h2 class="title is-3 has-text-centered">Qualitative Results</h2>
+                
+                <div class="tabs-container">
+                    <button class="tab-button active" data-index="0">SD3.5-M with Pickscore</button>
+                    <button class="tab-button" data-index="1">Flux.1-dev with Pickscore</button>
+                    <button class="tab-button" data-index="2">SD3.5-M with HPSv3</button>
+                </div>
+                
+                <div class="card-carousel">
+                    <div class="nav-arrows">
+                        <button class="arrow prev-arrow">
+                            <i class="fas fa-chevron-left"></i>
+                        </button>
+                        <button class="arrow next-arrow">
+                            <i class="fas fa-chevron-right"></i>
+                        </button>
+                    </div>
+                    
+<div class="cards-container">
+    <!-- Card 1 -->
+    <div class="card-item">
+        <!-- <div class="card-header">
+            <h3 class="title is-4 has-text-white">Results on SD3.5-M with Pickscore</h3>
+        </div> -->
+        <div class="card-image-container">
+            <img src="static/images/图片3.png" alt="SD3.5-M with Pickscore comparison results"/>
+        </div>
+        <p class="image-caption">Top row: Flow-GRPO | Bottom row: DiverseGRPO</p>
+    </div>
+    
+    <!-- Card 2 -->
+    <div class="card-item">
+        <!-- <div class="card-header">
+            <h3 class="title is-4 has-text-white">Results on Flux.1-dev with Pickscore</h3>
+        </div> -->
+        <div class="card-image-container">
+            <img src="static/images/图片1.png" alt="Flux.1-dev with Pickscore comparison results"/>
+        </div>
+        <p class="image-caption">Top row: Flow-GRPO | Bottom row: DiverseGRPO</p>
+    </div>
+    
+    <!-- Card 3 -->
+    <div class="card-item">
+        <!-- <div class="card-header">
+            <h3 class="title is-4 has-text-white">Results on SD3.5-M with HPSv3</h3>
+        </div> -->
+        <div class="card-image-container">
+            <img src="static/images/图片2.png" alt="SD3.5-M with HPSv3 comparison results"/>
+        </div>
+        <p class="image-caption">Top row: Flow-GRPO | Bottom row: DiverseGRPO</p>
+    </div>
+</div>
+                    
+                    <!-- <div class="indicators">
+                        <div class="indicator active" data-index="0"></div>
+                        <div class="indicator" data-index="1"></div>
+                        <div class="indicator" data-index="2"></div>
+                    </div> -->
+                </div>
+                
+                  <h2 class="content has-text-justified">
+                      We provide a visual comparison of images generated by two methods. The top row in each figure set shows results from the baseline method, while the bottom row shows results from our method. The comparison reveals that while different backbone networks produce stylistic differences, the baseline method suffers from significant mode collapse after training.
+                  </h2>
+            </div>
+        </div>
+    </section>
+
+       <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const cardsContainer = document.querySelector('.cards-container');
+            const cardItems = document.querySelectorAll('.card-item');
+            const tabButtons = document.querySelectorAll('.tab-button');
+            const indicators = document.querySelectorAll('.indicator');
+            const prevArrow = document.querySelector('.prev-arrow');
+            const nextArrow = document.querySelector('.next-arrow');
+            
+            let currentIndex = 0;
+            const totalCards = cardItems.length;
+            
+            // 更新轮播位置
+            function updateCarousel() {
+                cardsContainer.style.transform = `translateX(-${currentIndex * 100}%)`;
+                
+                // 更新标签按钮状态
+                tabButtons.forEach((button, index) => {
+                    if (index === currentIndex) {
+                        button.classList.add('active');
+                    } else {
+                        button.classList.remove('active');
+                    }
+                });
+                
+                // 更新指示器状态
+                indicators.forEach((indicator, index) => {
+                    if (index === currentIndex) {
+                        indicator.classList.add('active');
+                    } else {
+                        indicator.classList.remove('active');
+                    }
+                });
+            }
+            
+            // 切换到指定卡片
+            function goToCard(index) {
+                if (index < 0) {
+                    currentIndex = totalCards - 1;
+                } else if (index >= totalCards) {
+                    currentIndex = 0;
+                } else {
+                    currentIndex = index;
+                }
+                updateCarousel();
+            }
+            
+            // 标签按钮点击事件
+            tabButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    const index = parseInt(button.getAttribute('data-index'));
+                    goToCard(index);
+                });
+            });
+            
+            // 指示器点击事件
+            indicators.forEach(indicator => {
+                indicator.addEventListener('click', () => {
+                    const index = parseInt(indicator.getAttribute('data-index'));
+                    goToCard(index);
+                });
+            });
+            
+            // 箭头点击事件
+            prevArrow.addEventListener('click', () => {
+                goToCard(currentIndex - 1);
+            });
+            
+            nextArrow.addEventListener('click', () => {
+                goToCard(currentIndex + 1);
+            });
+            
+            // 添加触摸滑动支持
+            let startX = 0;
+            let endX = 0;
+            
+            cardsContainer.parentElement.addEventListener('touchstart', (e) => {
+                startX = e.touches[0].clientX;
+            }, false);
+            
+            cardsContainer.parentElement.addEventListener('touchmove', (e) => {
+                endX = e.touches[0].clientX;
+            }, false);
+            
+            cardsContainer.parentElement.addEventListener('touchend', () => {
+                const threshold = 50;
+                
+                if (startX - endX > threshold) {
+                    // 向左滑动，下一张
+                    goToCard(currentIndex + 1);
+                } else if (endX - startX > threshold) {
+                    // 向右滑动，上一张
+                    goToCard(currentIndex - 1);
+                }
+            }, false);
+            
+            // 添加键盘导航支持
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'ArrowLeft') {
+                    goToCard(currentIndex - 1);
+                } else if (e.key === 'ArrowRight') {
+                    goToCard(currentIndex + 1);
+                }
+            });
+            
+            // 自动轮播功能（可选，取消注释以启用）
+            // let autoSlideInterval = setInterval(() => {
+            //     goToCard(currentIndex + 1);
+            // }, 5000);
+            
+            // 鼠标悬停时暂停自动轮播
+            // cardsContainer.parentElement.addEventListener('mouseenter', () => {
+            //     clearInterval(autoSlideInterval);
+            // });
+            
+            // cardsContainer.parentElement.addEventListener('mouseleave', () => {
+            //     autoSlideInterval = setInterval(() => {
+            //         goToCard(currentIndex + 1);
+            //     }, 5000);
+            // });
+            
+            // 初始化轮播
+            updateCarousel();
+        });
+    </script>
+
+  <!-- 分界线 -->
+<br/>
+<!-- 分界线结束 -->
+
+<!-- Image carousel -->
+<section class="hero is-small">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <h2 class="title is-3 has-text-centered">Human Evaluation</h2>
+      <div class="item">
+        <!-- Your image here -->
+        <img src="static/images/human.png" alt="MY ALT TEXT"/>
+        <h2 class="content has-text-justified">
+           We conducted a human preference evaluation, and the results clearly demonstrate the superiority of DiverseGRPO in image quality (including visual quality and text alignment) and diversity (including style diversity and content diversity).
+       </h2>
+     </div>
+    </div>
+  </div>
+</div>
+</div>
+</section>
+<!-- End image carousel -->
+
+  <!-- 分界线 -->
+<br/>
+<!-- 分界线结束 -->
+
+<!-- Image carousel -->
+<section class="hero is-small">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <h2 class="title is-3 has-text-centered">More Analysis</h2>
+      <div class="item">
+        <!-- Your image here -->
+        <img src="static/images/analyse1.png" alt="MY ALT TEXT"/>
+        <h2 class="content has-text-justified">
+          <span class="emphasis">Training Process: </span>The figure illustrates the evolution of image quality and diversity throughout the training process. Compared to the baseline, our method maintains comparable image quality while experiencing a significantly slower decline in diversity, underscoring its effectiveness in balancing both critical aspects.
+       </h2>
+     </div>
+
+      <div class="item">
+        <!-- Your image here -->
+        <img src="static/images/analyse2.png" alt="MY ALT TEXT"/>
+        <h2 class="content has-text-justified">
+          <span class="emphasis">Impact of Exploration Bonus: </span>At training step 720, a rare side-view elephant sample emerges. By constructing a distance matrix that reveals distinct disparities between side-view samples and the majority, as shown in heatmap, our method effectively identifies such sample of high value in terms of diversity. By assigning these samples higher exploration rewards, the model is guided to not only continue generating them in subsequent training stages, but also to refine the overall quality of its outputs, achieving a more diverse and high-fidelity synthesis.
+       </h2>
+     </div>
+
     </div>
   </div>
 </div>
@@ -225,7 +929,7 @@ Motivated by these insights, we revisit the diversity degradation problem from b
 
 
 <!--BibTex citation -->
-<section class="section" id="BibTeX">
+<!-- <section class="section" id="BibTeX">
   <div class="container is-max-desktop content">
     <h2 class="title">BibTeX</h2>
     <pre><code>@article{Wang_Li_Chen_Zhang_Shen_Zhang_2024,
@@ -236,7 +940,7 @@ Motivated by these insights, we revisit the diversity degradation problem from b
       month={Feb.} 
 }</code></pre>
   </div>
-</section>
+</section> -->
 
 
   <footer class="footer">

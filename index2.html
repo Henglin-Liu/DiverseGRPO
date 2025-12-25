@@ -1,0 +1,658 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <!-- Meta tags for social media banners, these should be filled in appropriatly as they are your "business card" -->
+  <!-- Replace the content tag with appropriate information -->
+  <meta name="description" content="Adaptive FSS">
+  <meta property="og:title" content="Adaptive FSS"/>
+  <meta property="og:description" content="Adaptive FSS: A Novel Few-Shot Segmentation Framework via Prototype Enhancement"/>
+  <meta property="og:url" content="URL OF THE WEBSITE"/>
+  <!-- Path to banner image, should be in the path listed below. Optimal dimenssions are 1200X630-->
+  <meta property="og:image" content="static/image/video_t1.png" />
+  <meta property="og:image:width" content="2412"/>
+  <meta property="og:image:height" content="1394"/>
+
+
+  <meta name="twitter:title" content="Adaptive FSS">
+  <meta name="twitter:description" content="Adaptive FSS: A Novel Few-Shot Segmentation Framework via Prototype Enhancement">
+  <!-- Path to banner image, should be in the path listed below. Optimal dimenssions are 1200X600-->
+  <meta name="twitter:image" content="static/images/video_t1.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <!-- Keywords for your paper to be indexed by-->
+  <meta name="keywords" content="Image-to-Video">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+  <title>Adaptive FSS</title>
+  <link rel="icon" type="image/x-icon" href="static/images/favicon.ico">
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
+  rel="stylesheet">
+
+  <link rel="stylesheet" href="static/css/bulma.min.css">
+  <link rel="stylesheet" href="static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="static/css/fontawesome.all.min.css">
+  <link rel="stylesheet"
+  href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="static/css/index.css">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://documentcloud.adobe.com/view-sdk/main.js"></script>
+  <script defer src="static/js/fontawesome.all.min.js"></script>
+  <script src="static/js/bulma-carousel.min.js"></script>
+  <script src="static/js/bulma-slider.min.js"></script>
+  <script src="static/js/index.js"></script>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Math Rendering with Bulma</title>
+  <!-- Bulma CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+  <!-- KaTeX CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+  <style>
+      .has-text-justified {
+          text-align: justify;
+      }
+      .katex { font-size: 1.1em; }  /* 调整公式字体大小 */
+  </style>
+</head>
+<body>
+
+  
+  <section class="hero">
+    <div class="hero-body">
+      <div class="container is-max-desktop">
+        <div class="columns is-centered">
+          <div class="column has-text-centered">
+            <h1 class="title is-1 publication-title">DiverseGRPO: Mitigating Mode Collapse in Image Generation via Diversity-Aware GRPO</h1>
+            <div class="is-size-5 publication-authors">
+              <!-- Paper authors -->
+              <span class="author-block">
+                <a href="https://henglin-liu.github.io/HenglinLiu/">Henglin Liu</a><sup>1,2</sup>,&nbsp;&nbsp;</span>
+              <span class="author-block">
+                <a href="https://scholar.google.com/citations?user=BMPobCoAAAAJ&hl=zh-CN">Huijuan Huang</a><sup>2</sup>,&nbsp;&nbsp;</span>
+              <span class="author-block">
+                <a href="https://jingw193.github.io/wangjing/">Jing Wang</a><sup>2,3</sup>,&nbsp;&nbsp;</span> 
+              <span class="author-block">
+                <a href="https://www.au.tsinghua.edu.cn/en/info/1096/3484.htm">Chang Liu</a><sup>1</sup>,&nbsp;&nbsp;</span>
+              <span class="author-block">
+                <a href="https://www.sigs.tsinghua.edu.cn/lx/list.htm">Xiu Li</a><sup>1</sup>,&nbsp;&nbsp;</span>
+              <span class="author-block">
+                <a href="https://www.au.tsinghua.edu.cn/info/1080/3178.htm">Xiangyang Ji</a><sup>1</sup>,&nbsp;&nbsp;</span>
+              <span class="author-block">
+            </div>
+
+                  <div class="is-size-5 publication-authors">
+                    <span class="author-block"><sup>1</sup>Tsinghua University,&nbsp;&nbsp;</span>
+                    <span class="author-block"><sup>2</sup>Kling Team, Kuaishou Technology,&nbsp;&nbsp;</span>
+                    <span class="author-block"><sup>3</sup>Shenzhen Campus of Sun Yat-Sen University,&nbsp;&nbsp;</span>
+                  </div>
+
+                  <div class="column has-text-centered">
+                    <div class="publication-links">
+                         <!-- Arxiv PDF link -->
+                      <span class="link-block">
+                        <a href="https://arxiv.org/pdf/2312.15731.pdf" target="_blank"
+                        class="external-link button is-normal is-rounded is-dark">
+                        <span class="icon">
+                          <i class="fas fa-file-pdf"></i>
+                        </span>
+                        <span>Paper</span>
+                      </a>
+                    </span>
+
+                    <!-- Video link -->
+                    <span class="link-block">
+                      <a href="https://youtu.be/AcdjdqDVATE" target="_blank"
+                      class="external-link button is-normal is-rounded is-dark">
+                      <span class="icon">
+                        <i class="fab fa-youtube"></i>
+                      </span>
+                      <span>video</span>
+                    </a>
+                  </span>
+
+                  <!-- Github link -->
+                  <span class="link-block">
+                    <a class="external-link button is-normal is-rounded is-dark">
+                      <span class="icon">
+                        <i class="fab fa-github"></i>
+                      </span>
+                      <span>Coming Soon</span>
+                    </a>
+                  </span>
+
+                  <!-- ArXiv abstract Link -->
+                  <span class="link-block">
+                    <a class="external-link button is-normal is-rounded is-dark">
+                      <span class="icon">
+                        <i class="ai ai-arxiv"></i>
+                      </span>
+                      <span>Coming Soon</span>
+                    </a>
+                  </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Paper abstract -->
+<section class="section hero is-light">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Abstract</h2>
+        <div class="content has-text-justified">
+          <p>
+             Reinforcement learning (RL), particularly GRPO, improves image generation quality significantly by comparing the relative performance of images generated within the same group. However, in the later stages of training, the model tends to produce homogenized outputs, lacking creativity and visual diversity, restricting the application scenarios of the model.
+This issue can be analyzed from both reward modeling and generation dynamics perspectives. First, traditional GRPO relies on single-sample quality as the reward signal, driving the model to converge toward a few high-reward generation modes while neglecting distribution-level diversity. Second, conventional GRPO regularization neglects the dominant role of early-stage denoising in preserving diversity, causing a misaligned regularization budget that limits the achievable quality–diversity trade-off.
+Motivated by these insights, we revisit the diversity degradation problem from both reward modeling and generation dynamics. At the reward level, we propose a distributional creativity bonus based on semantic grouping. Specifically, we construct a distribution-level representation via spectral clustering over samples generated from the same caption, and adaptively allocate exploratory rewards according to group sizes to encourage the discovery of novel visual modes. At the generation level, we introduce a structure-aware regularization, which enforces stronger early-stage constraints to preserve diversity without compromising reward optimization efficiency. Experiments demonstrate that our method achieves an 13\%$\sim$18\% improvement in semantic diversity under matched quality scores, establishing a new Pareto frontier between image quality and diversity for GRPO-based image generation.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- End paper abstract -->
+
+<section class="hero is-small">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <h2 class="title is-3">Overview</h2>
+      <div class="item">
+        <h2 class="content has-text-justified">
+          DiverseGRPO enhances image quality while mitigating mode collapse during GRPO training. Watch our video presentation for a quick summary of our key contributions.
+        </h2>
+        <!-- 修改为YouTube视频嵌入 -->
+        <div class="video-container" style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; margin-bottom: 1.5rem;">
+          <iframe 
+            src="https://www.youtube.com/embed/AcdjdqDVATE" 
+            style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0;" 
+            frameborder="0" 
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+            allowfullscreen>
+          </iframe>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+<!-- Image carousel -->
+<section class="hero is-small">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <h2 class="title is-3">Problem</h2>
+      <div class="item">
+        <!-- 修改这一行：将src属性指向GIF文件 -->
+        <img src="static/images/problem.gif" alt="MY ALT TEXT"/>
+        <h2 class="content has-text-justified">
+            <span class="observation-line">A significant decline in the diversity of generated images is observed as the GRPO training progresses.</span>
+            <p class="paragraph">
+            This phenomenon arises because optimizing for <span class="emphasis">reward maximization</span> encourages the model to focus on a small set of high-reward outputs. As a result, <span class="emphasis">"safe" or high-scoring patterns are repeatedly reinforced</span>, while <span class="emphasis">creative or less common behaviors are gradually suppressed</span>.
+            </p>
+
+            <!-- <span class="explanation-line"><strong>Explanation</strong>: This occurs because the intrinsic objective of <em>reward maximization</em> tends to overfit the model to a narrow subset of high-reward modes, effectively encouraging the reproduction of 'safe' or 'high-score' patterns while suppressing creative or unconventional outputs. From a dynamics perspective, generation can be decomposed into multiple semantic modes. The typical single-sample reward induces a <strong>replicator dynamics</strong>, where modes with slightly higher average reward are amplified while others are suppressed. Ultimately, this process converges to a unimodal distribution, leading to homogenized outputs and <strong>mode extinction</strong>. Therefore, preventing this collapse requires fundamentally reshaping the reward structure to be distribution-aware, rather than relying on isolated sample scores. Formally, the conditional distribution can be decomposed as $\pi_{\theta}(x \mid p)=\sum_{k=1}^{K} w_{k} \pi_{\theta}^{k}(x \mid p)$. During optimization, the <strong>replicator dynamics</strong> $ \frac{dw_{k}}{dt}=w_{k}(\bar{r}_{k}-\mathbb{E}_{j}[\bar{r}_{j}])$ governs the mixture weights $w_k$, where $\bar{r}_{k}$ is the average reward of mode $k$. Modes with above-average reward are amplified, while others are suppressed, leading to an equilibrium where only the dominant mode survives: $w_{k} = \mathbf{1}_{\{k = \arg\max_{j} \bar{r}_{j}\}}$. This dynamic causes the model to converge to a unimodal, homogenized output distribution, sacrificing diversity for immediate reward.</span> -->
+            <span class="question-block">However, we raise a deeper question: <strong class="emphasized-question">Is diversity degradation an inevitable byproduct of reward optimization, or is it a symptom of misaligned learning objectives and generation dynamics?</strong></span>
+        </h2>
+
+     </div>
+    </div>
+  </div>
+</section>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        renderMathInElement(document.body, {
+            delimiters: [
+                {left: '$$', right: '$$', display: true},
+                {left: '$', right: '$', display: false},
+                {left: '\\(', right: '\\)', display: false},
+                {left: '\\[', right: '\\]', display: true}
+            ],
+            throwOnError: false
+        });
+    });
+</script>
+<style>
+    .content.has-text-justified {
+        line-height: 1.7;
+        color: #333;
+    }
+    
+    .content.has-text-justified .observation-line {
+        display: block;
+        margin-bottom: 0.8em;
+        padding-bottom: 0.8em;
+        border-bottom: 1px solid #eee;
+    }
+    
+    .content.has-text-justified .explanation-line {
+        display: block;
+        margin-bottom: 1.2em;
+        font-style: italic;
+        color: #555;
+    }
+    
+    .content.has-text-justified .question-block {
+        display: block;
+        margin-top: 1.2em;
+        padding: 1em;
+        background-color: #f8f9fa;
+        border-left: 4px solid #e2934a;
+        border-radius: 0 4px 4px 0;
+    }
+    
+    .content.has-text-justified .emphasized-question {
+        color: #d35400;
+        font-size: 1.05em;
+        font-weight: 700;
+    }
+    
+    .content.has-text-justified em {
+        color: #2980b9;
+        font-weight: 600;
+    }
+    
+    .content.has-text-justified strong:not(.emphasized-question) {
+        color: #2c3e50;
+        background-color: #f1f8ff;
+        padding: 0.1em 0.3em;
+        border-radius: 3px;
+    }
+
+    /* explain style */
+.motivation-image {
+  max-height: 220px;
+  width: auto;
+  object-fit: contain;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.box {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.box:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.12);
+}
+
+/* LaTeX公式样式 */
+.latex-container {
+  font-size: 1.1rem;
+  padding: 1.2rem;
+  background-color: #f8f9fa;
+  border-radius: 8px;
+  border: 1px solid #e0e0e0;
+  margin: 1.5rem 0;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+
+/* 调整MathJax渲染样式 */
+.mjx-chtml {
+  display: inline-block;
+  line-height: 0;
+  font-size: 1.2em !important;
+}
+
+.mjx-math {
+  display: inline-block;
+  text-align: center;
+  margin: 0.5em 0;
+}
+
+/* MathJax公式块居中 */
+.MathJax_Display {
+  text-align: center !important;
+  margin: 1.2em 0 !important;
+  overflow: auto hidden;
+}
+
+.highlight {
+  color: #3273dc;
+  font-weight: 600;
+  background-color: rgba(50, 115, 220, 0.1);
+  padding: 2px 6px;
+  border-radius: 3px;
+}
+
+.emphasis {
+  font-weight: 600;
+  color: #363636;
+  background-color: rgba(54, 54, 54, 0.05);
+  padding: 2px 4px;
+  border-radius: 3px;
+}
+
+.metric {
+  color: #ff3860;
+  font-weight: 700;
+  background-color: rgba(255, 56, 96, 0.1);
+  padding: 2px 6px;
+  border-radius: 3px;
+}
+
+.paragraph {
+  line-height: 1.7;
+  color: #4a4a4a;
+  font-size: 1.05rem;
+}
+
+.notification.is-light {
+  background-color: #f8f9fa;
+  border: 1px solid #e9ecef;
+  border-left: 4px solid #3273dc;
+}
+
+/* 行内公式样式 */
+p .MathJax {
+  font-size: 1.05em;
+  padding: 0 2px;
+}
+
+@media (max-width: 768px) {
+  .columns.is-desktop {
+    flex-direction: column;
+  }
+  
+  .motivation-image {
+    max-height: 180px;
+  }
+  
+  .latex-container {
+    padding: 1rem;
+    font-size: 1rem;
+  }
+}
+
+
+</style>
+
+<!-- End image carousel -->
+<section class="hero is-small">
+  <div class="visualization-header">
+    <h2 class="title is-3 has-text-centered mb-6">Motivation</h2>
+  </div>
+  
+  <div class="container is-max-desktop">
+    <!-- Motivation 1 -->
+    <div class="motivation-section">
+      <div class="motivation-content">
+        <p class="paragraph mb-4">
+          From a dynamical viewpoint, the model's conditional distribution can be written as a mixture of semantic modes:
+        </p>
+        
+        <div class="latex-container mb-4">
+          \[
+          \pi_\theta(x | p) = \sum_{k=1}^K w_k \pi_\theta^k(x | p)
+          \]
+        </div>
+        
+        <div class="image-inset mb-4">
+          <img src="static/images/motivation1.png" alt="Mode mixture visualization" class="inset-image" />
+          <div class="image-caption">Figure 1: Mode mixture representation in diffusion models</div>
+        </div>
+        
+        <p class="paragraph mb-4">
+          When training relies on <span class="highlight">single-sample rewards</span>, the mixture weights \(w_k\) evolve according to replicator dynamics:
+        </p>
+        
+        <div class="latex-container mb-4">
+          \[
+          \frac{dw_k}{dt} = w_k\left( \bar{r}_k - \mathbb{E}_j[\bar{r}_j] \right)
+          \]
+        </div>
+        
+        <div class="image-inset mb-4">
+          <img src="static/images/motivation1_dynamics.png" alt="Replicator dynamics visualization" class="inset-image" />
+          <div class="image-caption">Figure 2: Evolution of mixture weights under replicator dynamics</div>
+        </div>
+        
+        <p class="paragraph mb-3">
+          where \(\bar{r}_k\) is the average reward of mode \(k\). <span class="emphasis">Modes with above-average reward grow, while others shrink</span>. Over time, this process converges to a <span class="highlight">degenerate equilibrium</span>,
+        </p>
+        
+        <div class="latex-container mb-4">
+          \[
+          w_k = \mathbb{1}\{ k = \arg\max_j \bar{r}_j \}
+          \]
+        </div>
+        
+        <p class="paragraph mb-4">
+          in which <span class="emphasis">only the highest-reward mode survives</span>. The outcome is a <span class="highlight">unimodal and homogenized output distribution</span>, leading to <span class="emphasis">mode extinction and loss of diversity</span>.
+        </p>
+      </div>
+      
+      <div class="conclusion-card mt-4">
+        <div class="conclusion-header">
+          <span class="conclusion-label">Motivation 1</span>
+        </div>
+        <p class="conclusion-text">
+          Preventing mode collapse requires <span class="emphasis">distribution-aware reward objectives</span>, rather than isolated per-sample scores.
+        </p>
+      </div>
+    </div>
+    
+    <!-- Divider -->
+    <div class="section-divider">
+      <div class="divider-line"></div>
+    </div>
+    
+    <!-- Motivation 2 -->
+    <div class="motivation-section">
+      <div class="motivation-content">
+        <p class="paragraph mb-4">
+          Beyond external reward signals, we reveal a key insight from the <span class="highlight">intrinsic denoising dynamics of diffusion models</span>. By measuring perceptual similarity with DreamSim, we find that samples sharing more denoising steps become increasingly similar—<span class="emphasis">confirming prior observations</span>.
+        </p>
+        
+        <div class="image-inset mb-4">
+          <img src="static/images/motivation2.png" alt="Denoising similarity visualization" class="inset-image" />
+          <div class="image-caption">Figure 3: Perceptual similarity evolution during denoising process</div>
+        </div>
+        
+        <p class="paragraph mb-4">
+          Crucially, <span class="highlight">diversity collapses much faster in the early denoising phase</span>: the first one-third of steps accounts for <span class="metric">nearly 66% of the total diversity loss</span>. This shows that <span class="emphasis">early denoising plays a dominant role in determining visual diversity</span>, while later steps mainly fine-tune image quality.
+        </p>
+        
+        <div class="image-inset mb-4">
+          <img src="static/images/motivation2_diversity.png" alt="Diversity loss distribution" class="inset-image" />
+          <div class="image-caption">Figure 4: Distribution of diversity loss across denoising steps</div>
+        </div>
+        
+        <p class="paragraph mb-4">
+          From a mode-collapse perspective, diffusion models operate under an <span class="highlight">imbalanced diversity budget</span>—early steps are <span class="emphasis">diversity-critical</span>, but later steps focus on refinement. However, diffusion variance is highest in these early steps, making the <span class="emphasis">KL regularization weakest exactly when diversity protection is most needed</span>.
+        </p>
+        
+        <div class="image-inset mb-4">
+          <img src="static/images/motivation2_mismatch.png" alt="Structural mismatch visualization" class="inset-image" />
+          <div class="image-caption">Figure 5: Structural mismatch between diversity loss and regularization strength</div>
+        </div>
+      </div>
+      
+      <div class="conclusion-card mt-4">
+        <div class="conclusion-header">
+          <span class="conclusion-label">Motivation 2</span>
+        </div>
+        <p class="conclusion-text">
+          Structural mismatch accelerates mode extinction, highlighting a <span class="emphasis">fundamental limitation in current diffusion training dynamics</span>.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+
+<!-- Image carousel -->
+<section class="hero is-small">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <h2 class="title is-3">Method</h2>
+      <div class="item">
+        <!-- Your image here -->
+        <img src="static/images/method.png" alt="MY ALT TEXT"/>
+        <h2 class="content has-text-justified">
+           
+       </h2>
+     </div>
+    </div>
+  </div>
+</div>
+</div>
+</section>
+<!-- End image carousel -->
+
+<!-- Image carousel -->
+<section class="hero is-small">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <h2 class="title is-3">Quantitative Results</h2>
+      <div class="item">
+        <!-- Your image here -->
+        <img src="static/images/Report_score.png" alt="MY ALT TEXT"/>
+        <h2 class="content has-text-justified">
+           To comprehensively evaluate our approach, we conduct experiments on four few-shot segmentation networks (MSANet, HDMANet, FPTrans, and DCAMA), which adopt three popular backbones (ResNet, Vision Transformer, and Swin Transformer) as shown in Table. It is worth emphasizing that we followed the test setting of DCAMA so that the performance of the other method is slightly different from that in the original paper. As expected, our method consistently improves the performance of existing FSS methods with different encoders on two benchmarks. 
+       </h2>
+     </div>
+    </div>
+  </div>
+</div>
+</div>
+</section>
+<!-- End image carousel -->
+
+<!-- Image carousel -->
+<section class="hero is-small">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <h2 class="title is-3">Ablation study</h2>
+      <div class="item">
+        <!-- Your image here -->
+        <img src="static/images/abla_all.png" alt="MY ALT TEXT"/>
+        <h2 class="content has-text-justified">
+           To comprehensively evaluate our approach, we conduct experiments on four few-shot segmentation networks (MSANet, HDMANet, FPTrans, and DCAMA), which adopt three popular backbones (ResNet, Vision Transformer, and Swin Transformer) as shown in Table. It is worth emphasizing that we followed the test setting of DCAMA so that the performance of the other method is slightly different from that in the original paper. As expected, our method consistently improves the performance of existing FSS methods with different encoders on two benchmarks. 
+       </h2>
+     </div>
+    </div>
+  </div>
+</div>
+</div>
+</section>
+<!-- End image carousel -->
+
+
+  <!-- Image carousel -->
+<section class="hero is-small">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <h2 class="title is-3">Qualitative Results</h2>
+      <div class="item">
+        <!-- Your image here -->
+        <img src="static/images/图片1.png" alt="MY ALT TEXT"/>
+        <img src="static/images/图片2.png" alt="MY ALT TEXT"/>
+        <img src="static/images/图片3.png" alt="MY ALT TEXT"/>
+        <h2 class="content has-text-justified">
+           This a visual comparison between the baseline and our Adaptive FSS on the PASCAL-5<sup>i</sup> as shown in figure. The FPTrans without finetuning is chosen as the baseline. Our method achieves high-quality segmentation due to adapting the model to new categories effectively. 
+       </h2>
+     </div>
+    </div>
+  </div>
+</div>
+</div>
+</section>
+<!-- End image carousel -->
+
+
+
+<!--BibTex citation -->
+<section class="section" id="BibTeX">
+  <div class="container is-max-desktop content">
+    <h2 class="title">BibTeX</h2>
+    <pre><code>@article{Wang_Li_Chen_Zhang_Shen_Zhang_2024,
+      title={Adaptive FSS: A Novel Few-Shot Segmentation Framework via Prototype Enhancement}, 
+      author={Wang Jing and Li Jinagyun and Chen Chen and Zhang Yisi and Shen Haoran and Zhang Tianxiang},
+      year={2024},
+      journal={Proceedings of the AAAI Conference on Artificial Intelligence},
+      month={Feb.} 
+}</code></pre>
+  </div>
+</section>
+
+
+  <footer class="footer">
+  <div class="container">
+    <div class="columns is-centered">
+      <div class="column is-8">
+        <div class="content">
+
+          <p>
+            This page was built using the <a href="https://github.com/eliahuhorwitz/Academic-project-page-template" target="_blank">Template</a> which was adopted from the <a href="https://nerfies.github.io" target="_blank">Nerfies</a> project page.
+          </p>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+bulmaCarousel.attach('#results-carousel11', {
+    slidesToScroll: 1,
+    slidesToShow: 2,
+    infinite: true,
+    autoplay: false,
+});
+bulmaCarousel.attach('#results-carousel22', {
+    slidesToScroll: 1,
+    slidesToShow: 2,
+    infinite: true,
+    autoplay: false,
+});
+bulmaCarousel.attach('#results-carousel33', {
+    slidesToScroll: 1,
+    slidesToShow: 2,
+    infinite: true,
+    autoplay: false,
+});
+// math
+window.MathJax = {
+  tex: {
+    inlineMath: [['\\(', '\\)']],
+    displayMath: [['\\[', '\\]']],
+    processEscapes: true,
+    processEnvironments: true
+  },
+  options: {
+    skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+    ignoreHtmlClass: 'tex2jax_ignore'
+  },
+  loader: {load: ['[tex]/ams']},
+  startup: {
+    pageReady: () => {
+      return MathJax.startup.defaultPageReady();
+    }
+  }
+};
+</script>
+
+<!-- Statcounter tracking code -->
+  
+<!-- You can add a tracker to track page visits by creating an account at statcounter.com -->
+
+    <!-- End of Statcounter Code -->
+
+  </body>
+  </html>

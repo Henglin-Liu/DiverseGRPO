@@ -26,8 +26,9 @@
 
   <title>DiverseGRPO</title>
   <link rel="icon" type="image/x-icon" href="static/images/favicon.ico">
-  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
-  rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&amp;family=Manrope:wght@400;500;600;700;800&amp;family=Newsreader:opsz,wght@6..72,500;6..72,600&amp;family=Noto+Sans:wght@400;600;700&amp;display=swap" rel="stylesheet">
 
   <link rel="stylesheet" href="static/css/bulma.min.css">
   <link rel="stylesheet" href="static/css/bulma-carousel.min.css">
@@ -51,21 +52,199 @@
   <!-- KaTeX CSS -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
   <style>
-      .has-text-justified {
-          text-align: justify;
-      }
-      .katex { font-size: 1.1em; }  /* 调整公式字体大小 */
+    :root {
+      --ink: #0b1f3a;
+      --muted: #5d6f86;
+      --paper: #f4f8fc;
+      --surface: #e8f1fb;
+      --white: #ffffff;
+      --blue: #1769d2;
+      --blue-deep: #0a3f8f;
+      --blue-light: #67b7ff;
+      --line: #cbdcf0;
+      --max: 1180px;
+      --serif: "Newsreader", Georgia, serif;
+      --sans: "Manrope", Arial, sans-serif;
+      --mono: "DM Mono", monospace;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; background: var(--paper); }
+    body {
+      max-width: none !important;
+      margin: 0 !important;
+      padding: 0 !important;
+      background: radial-gradient(circle at 88% 10%, rgba(103,183,255,.18), transparent 28%), var(--paper) !important;
+      color: var(--ink) !important;
+      font-family: var(--sans) !important;
+      font-size: 16px;
+      line-height: 1.75;
+    }
+    .has-text-justified { text-align: justify; }
+    .katex { font-size: 1.1em; }
+
+    .site-header {
+      height: 72px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 36px;
+      border-bottom: 1px solid rgba(11,31,58,.12);
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      background: rgba(244,248,252,.88);
+      backdrop-filter: blur(16px);
+    }
+    .site-header .brand { color: var(--ink); font-size: 23px; font-weight: 800; letter-spacing: -1.2px; }
+    .site-header .brand span { color: var(--blue); font-family: var(--serif); font-style: italic; }
+    .site-header nav { display: flex; gap: 26px; }
+    .site-header nav a { color: var(--ink); font-size: 12px; font-weight: 700; transition: color .2s; }
+    .site-header nav a:hover { color: var(--blue); }
+    .header-actions { display: flex; align-items: center; gap: 8px; }
+    .header-paper { color: white !important; background: var(--blue); border: 1px solid var(--blue); border-radius: 99px; padding: 8px 16px; font-size: 12px; font-weight: 700; transition: transform .2s, box-shadow .2s; }
+    .header-paper:hover { transform: translateY(-1px); box-shadow: 0 6px 18px rgba(23,105,210,.2); }
+    .header-paper.secondary { color: var(--blue-deep) !important; background: rgba(255,255,255,.72); border-color: var(--line); }
+    .venue-badge { display: inline-flex; align-items: center; gap: 8px; margin-bottom: 18px; padding: 7px 13px; border: 1px solid rgba(23,105,210,.2); border-radius: 99px; color: var(--blue-deep); background: rgba(255,255,255,.68); font: 700 11px var(--mono); letter-spacing: .06em; text-transform: uppercase; box-shadow: 0 8px 24px rgba(23,105,210,.08); }
+    .venue-badge::before { content: ""; width: 7px; height: 7px; border-radius: 50%; background: var(--blue); box-shadow: 0 0 0 4px rgba(23,105,210,.1); }
+
+    body > .hero:first-of-type {
+      min-height: calc(100vh - 72px);
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      background: transparent !important;
+    }
+    body > .hero:first-of-type::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      background-image: linear-gradient(rgba(23,105,210,.055) 1px, transparent 1px), linear-gradient(90deg, rgba(23,105,210,.055) 1px, transparent 1px);
+      background-size: 56px 56px;
+      mask-image: linear-gradient(to bottom, transparent, #000 18%, #000 78%, transparent);
+    }
+    body > .hero:first-of-type::after {
+      content: "";
+      position: absolute;
+      width: 520px;
+      height: 520px;
+      right: -170px;
+      top: 5%;
+      border-radius: 50%;
+      background: var(--blue-light);
+      filter: blur(120px);
+      opacity: .2;
+      pointer-events: none;
+    }
+    body > .hero:first-of-type .hero-body { width: 100%; padding: 90px 24px 72px; position: relative; z-index: 1; }
+    .hero-eyebrow, .section-kicker { font: 500 11px var(--mono); letter-spacing: .14em; text-transform: uppercase; }
+    .hero-eyebrow { display: flex; align-items: center; justify-content: center; gap: 10px; margin-bottom: 26px; color: var(--blue-deep); }
+    .hero-eyebrow span { width: 8px; height: 8px; border-radius: 50%; background: var(--blue); box-shadow: 0 0 0 5px rgba(23,105,210,.12); }
+    .publication-title.title {
+      max-width: 1100px;
+      margin: 0 auto 30px !important;
+      color: var(--ink);
+      font-family: var(--serif) !important;
+      font-size: clamp(48px, 6.2vw, 86px) !important;
+      line-height: .98 !important;
+      letter-spacing: -.05em;
+      font-weight: 600;
+    }
+    .publication-title em { color: var(--blue); font-weight: 500; }
+    .publication-authors { font-family: var(--sans) !important; color: var(--muted); }
+    .publication-authors a { color: var(--blue) !important; font-weight: 700; }
+    .publication-links .button { border: 0; background: var(--ink) !important; box-shadow: 0 8px 24px rgba(11,31,58,.14); transition: transform .2s, background .2s; }
+    .publication-links .button:hover { background: var(--blue) !important; transform: translateY(-2px); }
+    .hero-note { margin-top: 38px; color: var(--muted); font: 500 10px var(--mono); letter-spacing: .06em; }
+
+    body > br { display: none; }
+    body > section:not(:first-of-type) { background: transparent !important; }
+    body > section:not(:first-of-type) .hero-body,
+    body > section.section { max-width: var(--max); margin: 0 auto; padding: 104px 36px; }
+    body > section.section .container { max-width: 840px !important; }
+    body > section:nth-of-type(even):not(:first-of-type) { background: rgba(232,241,251,.58) !important; }
+    body > section:nth-of-type(even):not(:first-of-type) .hero-body { max-width: var(--max); }
+    body > section .title.is-3 {
+      color: var(--ink);
+      font-family: var(--serif);
+      font-size: clamp(40px, 5vw, 68px);
+      line-height: 1;
+      letter-spacing: -.04em;
+      font-weight: 600;
+      margin-bottom: 42px;
+    }
+    body > section .title.is-3::before {
+      content: "Research · DiverseGRPO";
+      display: block;
+      margin-bottom: 15px;
+      color: var(--blue);
+      font: 500 10px var(--mono);
+      letter-spacing: .14em;
+      text-transform: uppercase;
+    }
+    .content.has-text-justified { color: #334861 !important; font-size: 16px; line-height: 1.82 !important; }
+    .item > img, .explanation-container, .video-container, .card-carousel {
+      border: 1px solid rgba(23,105,210,.14);
+      border-radius: 18px !important;
+      box-shadow: 0 20px 55px rgba(25,72,125,.1) !important;
+      background: white;
+    }
+    .item > img { width: 100%; padding: 12px; margin-bottom: 30px; }
+    .explanation-container { border-left: 5px solid var(--blue) !important; }
+    .formula { background: #eef6ff !important; border-left-color: var(--blue-light) !important; }
+    .conclusion { background: #eaf4ff !important; border-left-color: var(--blue) !important; }
+    .emphasis, .highlight, .emphasis_conclusion { color: var(--blue) !important; }
+    .content.has-text-justified .question-block { background: #eaf4ff !important; border-left-color: var(--blue) !important; }
+    .content.has-text-justified .emphasized-question { color: var(--blue-deep) !important; }
+    .tab-button.active, .card-header { background: var(--blue) !important; }
+    .tab-button.active { box-shadow: 0 5px 16px rgba(23,105,210,.25) !important; }
+    .arrow:hover { background: var(--blue) !important; }
+    .footer { margin-top: 0; padding: 52px 24px; background: var(--ink) !important; color: #c8d6e8; }
+    .footer a { color: var(--blue-light); }
+
+    @media (max-width: 900px) {
+      .site-header nav { display: none; }
+      body > section:not(:first-of-type) .hero-body, body > section.section { padding: 82px 20px; }
+      .card-image-container { min-height: 320px !important; height: 55vh !important; }
+    }
+    @media (max-width: 600px) {
+      .site-header { height: 62px; padding: 0 12px; }
+      .site-header .brand { font-size: 17px; }
+      .header-actions { gap: 5px; }
+      .header-paper { padding: 6px 8px; font-size: 10px; }
+      .publication-title.title { font-size: 45px !important; }
+      body > .hero:first-of-type .hero-body { padding: 78px 16px 60px; }
+      body > section .title.is-3 { font-size: 42px; }
+      .publication-links { display: flex; justify-content: center; flex-wrap: wrap; gap: 4px; }
+    }
   </style>
 </head>
 <body>
+  <header class="site-header">
+    <a class="brand" href="#top"><span>Diverse</span>GRPO</a>
+    <nav aria-label="Main navigation">
+      <a href="#abstract">Abstract</a>
+      <a href="#motivation">Motivation</a>
+      <a href="#method">Method</a>
+      <a href="#results">Results</a>
+      <a href="#analysis">Analysis</a>
+    </nav>
+    <div class="header-actions">
+      <a class="header-paper secondary" href="https://youtu.be/AcdjdqDVATE" target="_blank" rel="noopener">Watch video ↗</a>
+      <a class="header-paper" href="https://openaccess.thecvf.com/content/CVPR2026/papers/Liu_DiverseGRPO_Mitigating_Mode_Collapse_in_Image_Generation_via_Diversity-Aware_GRPO_CVPR_2026_paper.pdf" target="_blank" rel="noopener">Paper ↗</a>
+    </div>
+  </header>
 
-
-  <section class="hero">
+  <section class="hero" id="top">
     <div class="hero-body">
       <div class="container is-max-desktop">
         <div class="columns is-centered">
           <div class="column has-text-centered">
-            <h1 class="title is-1 publication-title">DiverseGRPO: Mitigating Mode Collapse in Image Generation via Diversity-Aware GRPO</h1>
+            <div class="venue-badge">CVPR 2026 Highlight</div>
+            <div class="hero-eyebrow"><span></span>Diversity-aware reinforcement learning for image generation</div>
+            <h1 class="title is-1 publication-title"><em>DiverseGRPO</em><br>Mitigating Mode Collapse in Image Generation</h1>
             <div class="is-size-5 publication-authors">
               <!-- Paper authors -->
               <span class="author-block">
@@ -91,37 +270,6 @@
 
                   <div class="column has-text-centered">
                     <div class="publication-links">
-
-                    <!-- Video link -->
-                    <span class="link-block">
-                      <a href="https://youtu.be/AcdjdqDVATE" target="_blank"
-                      class="external-link button is-normal is-rounded is-dark">
-                      <span class="icon">
-                        <i class="fab fa-youtube"></i>
-                      </span>
-                      <span>Video</span>
-                    </a>
-                  </span>
-
-                  <!-- Github link -->
-                  <span class="link-block">
-                    <a class="external-link button is-normal is-rounded is-dark">
-                      <span class="icon">
-                        <i class="fab fa-github"></i>
-                      </span>
-                      <span>Coming Soon</span>
-                    </a>
-                  </span>
-
-                  <!-- ArXiv abstract Link -->
-                  <span class="link-block">
-                    <a class="external-link button is-normal is-rounded is-dark">
-                      <span class="icon">
-                        <i class="ai ai-arxiv"></i>
-                      </span>
-                      <span>Coming Soon</span>
-                    </a>
-                  </span>
             </div>
           </div>
         </div>
@@ -135,7 +283,7 @@
 <!-- 分界线结束 -->
 
 <!-- Paper abstract -->
-<section class="section hero is-light">
+<section class="section hero is-light" id="abstract">
   <div class="container is-max-desktop">
     <div class="columns is-centered has-text-centered">
       <div class="column is-four-fifths">
@@ -152,33 +300,6 @@ Motivated by these insights, we revisit the diversity degradation problem from b
   </div>
 </section>
 <!-- End paper abstract -->
-
-<!-- 分界线 -->
-<br/>
-<!-- 分界线结束 -->
-
-<section class="hero is-small">
-  <div class="hero-body">
-    <div class="container is-max-desktop">
-      <h2 class="title is-3 has-text-centered">Overview</h2>
-      <div class="item">
-        <h2 class="content has-text-justified">
-          DiverseGRPO enhances image quality while mitigating mode collapse during GRPO training. Watch our video presentation for a quick summary of our key contributions.
-        </h2>
-        <!-- 修改为YouTube视频嵌入 -->
-        <div class="video-container" style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; margin-bottom: 1.5rem;">
-          <iframe 
-            src="https://www.youtube.com/embed/AcdjdqDVATE" 
-            style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0;" 
-            frameborder="0" 
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-            allowfullscreen>
-          </iframe>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
 
 <!-- 分界线 -->
 <br/>
@@ -503,7 +624,7 @@ Motivated by these insights, we revisit the diversity degradation problem from b
 
 <!-- End image carousel -->
 
-<section class="hero is-small">
+<section class="hero is-small" id="motivation">
   <div class="hero-body">
     <div class="container is-max-desktop">
       <h2 class="title is-3 has-text-centered">Motivation</h2>
@@ -595,7 +716,7 @@ Motivated by these insights, we revisit the diversity degradation problem from b
 <!-- 分界线结束 -->
 
 <!-- Image carousel -->
-<section class="hero is-small">
+<section class="hero is-small" id="method">
   <div class="hero-body">
     <div class="container is-max-desktop">
       <h2 class="title is-3 has-text-centered">Method Overview</h2>
@@ -618,7 +739,7 @@ Motivated by these insights, we revisit the diversity degradation problem from b
 <!-- 分界线结束 -->
 
 <!-- Image carousel -->
-<section class="hero is-small">
+<section class="hero is-small" id="results">
   <div class="hero-body">
     <div class="container is-max-desktop">
       <h2 class="title is-3 has-text-centered">Quantitative Results</h2>
@@ -889,7 +1010,7 @@ Motivated by these insights, we revisit the diversity degradation problem from b
 <!-- 分界线结束 -->
 
 <!-- Image carousel -->
-<section class="hero is-small">
+<section class="hero is-small" id="analysis">
   <div class="hero-body">
     <div class="container is-max-desktop">
       <h2 class="title is-3 has-text-centered">More Analysis</h2>
@@ -932,22 +1053,6 @@ Motivated by these insights, we revisit the diversity degradation problem from b
   </div>
 </section> -->
 
-
-  <footer class="footer">
-  <div class="container">
-    <div class="columns is-centered">
-      <div class="column is-8">
-        <div class="content">
-
-          <p>
-            This page was built using the <a href="https://github.com/eliahuhorwitz/Academic-project-page-template" target="_blank">Template</a> which was adopted from the <a href="https://nerfies.github.io" target="_blank">Nerfies</a> project page.
-          </p>
-
-        </div>
-      </div>
-    </div>
-  </div>
-</footer>
 
 <script>
 bulmaCarousel.attach('#results-carousel11', {
